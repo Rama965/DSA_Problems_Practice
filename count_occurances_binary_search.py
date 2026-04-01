@@ -1,3 +1,9 @@
+#Count Occurrences Using Binary Search
+#Count how many times a number appears in a sorted array.
+#Input: [2,4,4,4,6,8]
+#Target = 4
+#Output = 3
+#count = last_occurrence − first_occurrence + 1
 def first_occurance(arr,target):
     left = 0
     right = len(arr)-1
