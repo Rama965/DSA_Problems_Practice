@@ -4,22 +4,26 @@
 #Output: True
 #Input: "{[(])}"
 #Output: False
-def valid_parenthese(s):
+def valid_parenthesis(s):
     stack = []
+    
     mapping = {
-        ')' : '(',
-        '}' : '{',
-        ']' : '['
+        ")":"(",
+        "}":"{",
+        "]":"["
     }
+    
     for char in s:
+        
         if char in mapping.values():
             stack.append(char)
+            
         elif char in mapping.keys():
-            if stack == []:
+            
+            if not stack or stack[-1] != mapping[char]:
                 return False
-            if mapping[char] != stack.pop():
-                return False
-    return stack == []
+            stack.pop()
+    return len(stack) == 0
 
-print(valid_parenthese("{[()]}"))
-print(valid_parenthese("{[(])}"))
+print(valid_parenthesis("()[]{}"))
+print(valid_parenthesis("(]"))
